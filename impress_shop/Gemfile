@@ -48,3 +48,4 @@ end
 # Shoppe
   gem 'shoppe', '~> 1.0'
   gem 'nifty-attachments'
+  gem "shoppe-stripe", require: "shoppe/stripe"
