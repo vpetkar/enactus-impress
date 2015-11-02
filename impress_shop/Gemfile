@@ -49,3 +49,6 @@ end
   gem 'shoppe'
   gem 'nifty-attachments'
   gem "shoppe-stripe", require: "shoppe/stripe"
+
+# bootstrap-css
+  gem 'bootstrap-sass', '~> 3.3.5'
