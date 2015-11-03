@@ -12,11 +12,11 @@
     You have <%= pluralize current_order.total_items, 'item'%> in your <%= link_to "basket", basket_path %>
     <%= link_to "Checkout", checkout_path %>
   </div>
+  <% end %>
+  <% if flash[:notice] %>
   <div class="alert alert-warning" role="alert">
     <%= flash[:notice] %>
   </div>
-
-
   <% end %>
 
 <%= yield %>
