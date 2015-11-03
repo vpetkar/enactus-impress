@@ -8,13 +8,14 @@
 </head>
 <body>
   <% if current_order %>
-  <p style="border:1px solid black;padding:10px;">
-    You have <%= pluralize current_order.total_items, 'item'%> in your basket which cost
-    <%= number_to_currency current_order.total_before_tax %>.
-    <%= link_to "View basket", basket_path %>
+  <div class="alert alert-success" role="alert">
+    You have <%= pluralize current_order.total_items, 'item'%> in your <%= link_to "basket", basket_path %>
     <%= link_to "Checkout", checkout_path %>
+  </div>
+  <div class="alert alert-warning" role="alert">
     <%= flash[:notice] %>
-  </p>
+  </div>
+
 
   <% end %>
 
