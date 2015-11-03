@@ -1,3 +1,5 @@
+<%= debug @order %>
+
 <h2>Checkout</h2>
 <%= render 'items', :order => @order %>
 
@@ -10,7 +12,7 @@
     <dd><%= f.text_field :billing_address1 %></dd>
     <dd><%= f.text_field :billing_address2 %></dd>
     <dd><%= f.text_field :billing_address3 %></dd>
-    <dd><%= f.text_field :billing_address4 %></dd>
+    <dd><%= f.hidden_field :billing_address4 , value: "test"%></dd>
     <dt><%= f.label :billing_postcode, 'Post code' %></dt>
     <dd><%= f.text_field :billing_postcode %></dd>
     <dd><%= f.collection_select :billing_country_id, Shoppe::Country.ordered, :id, :name, :include_blank => true %></dd>
