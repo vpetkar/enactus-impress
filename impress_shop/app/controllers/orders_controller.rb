@@ -15,7 +15,6 @@ class OrdersController < ApplicationController
   def payment
     @order = Shoppe::Order.find(session[:order_id])
     if request.post?
-      puts "def payment GOT: #{params[:stripe_token]}"
       if @order.accept_stripe_token(params[:stripe_token])
         redirect_to checkout_confirmation_path
       else
