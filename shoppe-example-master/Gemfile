@@ -11,7 +11,7 @@ gem 'redcarpet'
 gem 'faker'
 gem 'shoppe'
 gem 'thin'
-
+gem "shoppe-stripe", require: "shoppe/stripe"
 group :development do
   gem 'capistrano'
 end
