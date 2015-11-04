@@ -1,8 +1,9 @@
 module Shoppe
   module Stripe
     module OrderExtensions
-      
+
       def accept_stripe_token(token)
+        puts "The token that accept_stripe_token got is : #{token}"
         if token =~ /\Atok/
           customer = ::Stripe::Customer.create({:description => "Customer for order #{number}", :card => token}, Shoppe.settings.stripe_api_key)
           self.properties['stripe_customer_token'] = customer.id
@@ -13,20 +14,22 @@ module Shoppe
         elsif self.properties['stripe_customer_token'] && self.properties['stripe_customer_token'] =~ /\Acus/
           true
         else
+          puts "order_extensions.rb IS SAYING THAT WE CRY NOW"
           false
         end
       end
-      
+
       private
-      
+
       def stripe_customer
+        puts "CALLED stripe_customer FROM order_extensions"
         @stripe_customer ||= ::Stripe::Customer.retrieve(self.properties['stripe_customer_token'], Shoppe.settings.stripe_api_key)
       end
-      
+
       def stripe_card
         @stripe_card ||= stripe_customer.cards.last
       end
-      
+
     end
   end
 end
