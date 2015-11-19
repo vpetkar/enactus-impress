@@ -46,7 +46,7 @@ group :development do
 end
 
 # Shoppe
-  gem 'shoppe'
+  gem 'shoppe', path: "~/Development/enactus-impress/shoppe-1.1.1"
   gem 'nifty-attachments'
   gem "shoppe-stripe", require: "shoppe/stripe"
 
